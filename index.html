@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pure CSS Rain Animation Effects</title>
+		<style type="text/css">
+
+
+body
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+}
+/*form{
+	margin-top: 70px;
+	padding-top: 70px;
+	text-align: center;
+}*/
+textarea {
+  position: absolute;
+  top: 120px;
+  left:calc(50% - 450px) ;
+  width: 900px;
+  height: calc(100% - 120px);
+  padding: 120px 120px;
+  box-sizing: border-box;
+  border: 0px solid #ccc;
+  background-color: #C8E9D9;
+  /*background-color: #D6EFE3;
+  background-color: #E2F1EA;*/
+  opacity:1;
+  font-size: 16px;
+  resize: none;
+  outline-width: 0px;
+  line-height: 2;
+  z-index:2;
+}
+
+body
+{
+	/*position: relative;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*height: 100vh;*/
+	background: url("https://z3.ax1x.com/2021/08/15/f2dpwV.jpg" );
+	background-size: cover;
+	overflow-y: hidden;
+	/*animation: color-change 1000s linear infinite;*/
+	 z-index:3;
+}
+div
+{
+	--speed: 1.5;
+	--tou: 0.1;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("https://z3.ax1x.com/2021/08/15/f2dSe0.png");
+	opacity:var(--tou);
+	/*background-color:rgba(255,255,255,0.5);*/
+	animation: rain calc(var(--speed) * 1s) linear infinite;
+	z-index:2;
+}
+@keyframes color-change
+{
+	0%,100%
+	{
+		filter:hue-rotate(0deg);
+	}
+	50%
+	{
+		filter:hue-rotate(360deg);
+	}
+}
+@keyframes rain
+{
+	0%
+	{
+		background-position: 0 0;
+	}
+	100%
+	{
+		background-position: 20% 100%;
+	}
+}
+
+		</style>
+	</head>
+	<div id="yu"></div>
+	<body id=“a”>
+		
+	</body>
+	<textarea id="write" oninput="keypress()" autofocus="autofocus"></textarea>
+
+
+
+	 <script language="javascript">   
+	 	var o
+	 	var s
+	 	o=0.1
+	 	s=1.5
+
+		function keypress() 
+		{
+			if (o<0.5)
+			{
+				o=o+0.005
+			}
+			if (s>0.21) 
+			{
+				s=s-0.015
+			}
+			//document.getElementById("yu").style.opacity= o
+			document.getElementById("yu").style.setProperty('--tou', o);
+			document.getElementById("yu").style.setProperty('--speed', s);
+		}
+
+		var myVar = setInterval(function(){ yuxiao() }, 600);
+ 
+		function yuxiao() {
+			if (o>0.1)
+			{
+				o=o-0.006
+			}
+			if (s<1.5) 
+			{
+				s=s+0.018
+			}			
+  		
+ 		document.getElementById("yu").style.setProperty('--tou', o);
+		document.getElementById("yu").style.setProperty('--speed', s);
+}
+
+	</script>
+	
+</html>
